@@ -1,38 +1,61 @@
+const Autor = require('./Autor')
+
 class Nota{
-    constructor (data={}){
+    constructor (autor, data={}){
+        if(autor instanceof Autor){
+            this.autor = autor
+        }else{
+            throw new Error('Se requiere un autor!')
+        }
         this.categoria = data.categoria || ''
         this.duracion = data.duracion || undefined
         this.titulo = data.titulo || ''
+        this.texto = data.texto || ''
     }
-    setTituloNota(n){
-        if(typeof n== ''){
-            this.titulo = n
+    setAutor(autor){
+        if(autor instanceof Autor){
+            this.autor = autor
         }else{
-            throw new Error('El parametro debe ser String!')
+            throw new Error('Se requiere un autor!')
         }
     }
-    setCategoriaNota(n){
-        if(typeof n== ''){
+    setTitulo(n){
+        if(typeof n=='string'){
+            this.titulo = n
+        }
+    }
+    setCategoria(n){
+        if(typeof n== 'string'){
             this.categoria = n
         }else{
             throw new Error('El parametro debe ser String!')
         }
     }
-    setDuracionNota(n){
-        if(typeof n=='number'){
+    setDuracion(n){
+        if(typeof n== 'number'){
             this.duracion = n
         }else{
             throw new Error('El parametro debe ser Number!')
         }
     }
-    getTituloNota(){
+    setTexto(n){
+        if(typeof n== 'string' ){
+            this.texto = n
+        }else{
+            throw new Error('El parametro debe ser String!')
+        }
+    }
+    getTitulo(){
         return (this.titulo)
     }
-    getCategoriaNota(){
+    getCategoria(){
         return (this.categoriaNota)
     }
-    getDuracionNota(){
+    getDuracion(){
         return (this.duracion)
+    }
+    getTexto(){
+        return (this.texto)
     }
 }
 module.exports = Nota;

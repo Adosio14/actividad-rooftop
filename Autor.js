@@ -2,12 +2,12 @@ class Autor {
     constructor (data={}){
         this.id = data.id || null
         this.nombre= data.nombre || ''
-        this.apellid = data.apellido || ''
+        this.apellido = data.apellido || ''
         this.campo = data.campo || ''
         this.localidad = data.localidad || ''
     }
     setId(n){
-        if(typeof n== number){
+        if(typeof n== 'number'){
             this.id = n
         }else{
             throw new Error('El id debe ser un numero!')
@@ -27,28 +27,31 @@ class Autor {
             throw new Error('El parametro debe ser String!')
         }
     }
-    setCampoAutor(n){
+    setCampo(n){
         if(typeof n== 'string'){
             this.campo = n
         } else {
             throw new Error('El parametro debe ser String!')
         }
     }
-    setLocalidadAutor(n){
+    setLocalidad(n){
         if(typeof n== 'string'){
             this.localidad = n
         } else {
             throw new Error('El parametro debe ser String!')
         }
     }
-    getNombreAutor(){
+    getNombre(){
         return (this.nombre+''+this.apellidoAutor)
     }
-    getCampoAutor(){
+    getCamp(){
         return (this.campo)
     }
-    getLocalidadAutor(){
+    getLocalidad(){
         return (this.campo)
+    }
+    getId(){
+        return (this.id)
     }
 }
 module.exports = Autor;
